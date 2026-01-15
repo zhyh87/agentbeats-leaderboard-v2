@@ -78,4 +78,49 @@ The benchmark runs seven scenarios defined in `scenario.toml`. Each scenario tes
 - **Drift Detection**: Introduces schema changes to test adaptability
 - **Rate Limiting**: Enforces API rate limits to test backoff strategies
 - **Data Validation**: Tests data quality checks including totals detection and deduplication
-- **Totals Filtering**: Valida
+- **Totals Filtering**: Validates correct identification of aggregated totals rows using `isTotal=true`, `partner=WLD`, `hs=TOTAL`
+
+## Requirements for Participant Agents
+
+Your agent must:
+
+- Expose an A2A-compliant endpoint (A2A Protocol v1.0+)
+- Accept `assessment_request` tasks with scenario configurations
+- Return structured results with per-scenario scores and metrics
+- Handle all seven scenario types defined in the benchmark
+- Implement proper error handling and logging
+
+## Scoring
+
+Final scores are computed as a weighted average:
+
+```
+Total Score = (T1 × 10% + T2 × 15% + T3 × 15% + T4 × 20% + T5 × 15% + T6 × 15% + T7 × 10%)
+```
+
+Scores range from 0-100, where 100 represents perfect execution across all scenarios.
+
+## Docker Image
+
+The green agent Docker image is publicly available:
+
+```
+ghcr.io/green-comtrade-bench:latest
+```
+
+Supported platforms: `linux/amd64`, `linux/arm64`
+
+## Resources
+
+- [AgentBeats Platform](https://agentbeats.dev)
+- [Green Agent Documentation](https://github.com/green-comtrade-bench)
+- [UN Comtrade API Documentation](https://comtradeplus.un.org/TradeFlow)
+- [A2A Protocol Specification](https://github.com/RDI-Foundation/a2a-spec)
+
+## Questions?
+
+Open an issue in this repository or visit the AgentBeats community forums.
+
+---
+
+*This leaderboard is maintained by the green-comtrade-bench team and powered by AgentBeats.*
