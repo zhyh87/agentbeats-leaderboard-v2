@@ -60,12 +60,13 @@ jobs:
               pass
 
           # Set a safe entrypoint so command flags are interpreted correctly.
-          svc["entrypoint"] = ["agentbeats-client"]
+          # Note: The AgentBeats CLI binary is "agentbeats-run", not "agentbeats-client"
+          svc["entrypoint"] = ["agentbeats-run"]
 
           with open(path, "w", encoding="utf-8") as f:
               yaml.safe_dump(data, f, sort_keys=False)
 
-          print("Patched docker-compose.yml: set agentbeats-client entrypoint")
+          print("Patched docker-compose.yml: set agentbeats-run entrypoint")
           PY
 
       - name: Check GHCR_TOKEN is set
