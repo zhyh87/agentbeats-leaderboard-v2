@@ -64,16 +64,8 @@ jobs:
           print("Patched docker-compose.yml: set agentbeats-client entrypoint")
           PY
 
-      - name: Check GHCR_TOKEN exists
-        run: |
-          if [ -z "${{ secrets.GHCR_TOKEN }}" ]; then
-            echo "::error::Missing GHCR_TOKEN secret. Add it in Settings → Secrets → Actions with read:packages scope."
-            exit 1
-          fi
-          echo "GHCR_TOKEN is configured"
-
       - name: Login to GHCR (pre-pull)
-        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
       - name: Pull images
         run: |
