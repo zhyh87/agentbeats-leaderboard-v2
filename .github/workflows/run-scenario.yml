@@ -9,9 +9,17 @@ on:
       - 'generate_compose.py'
       - 'record_provenance.py'
 
+env:
+  # Pin image SHAs to avoid stale :latest tags
+  GREEN_SHA: "e210491"
+  PURPLE_SHA: "fdfbbff"
+
 jobs:
   run:
     runs-on: ubuntu-latest
+    env:
+      GREEN_IMAGE: ghcr.io/yonghongzhang-io/green-comtrade-bench-v2:${{ env.GREEN_SHA }}
+      PURPLE_IMAGE: ghcr.io/yonghongzhang-io/purple-comtrade-baseline-v2:${{ env.PURPLE_SHA }}
     if: github.event.repository.fork == true || github.ref == 'refs/heads/main'
     permissions:
       contents: write
@@ -108,6 +116,17 @@ jobs:
             echo "  https://github.com/users/YOUR_USER/packages"
             exit 1
           fi
+
+      - name: Debug image digests
+        run: |
+          echo "===== Pulled images ====="
+          docker images --digests | grep -E "green-comtrade-bench-v2|purple-comtrade-baseline-v2" || true
+          echo ""
+          echo "GREEN_IMAGE=$GREEN_IMAGE"
+          docker inspect --format='{{index .RepoDigests 0}}' "$GREEN_IMAGE" 2>/dev/null || echo "(not found)"
+          echo ""
+          echo "PURPLE_IMAGE=$PURPLE_IMAGE"
+          docker inspect --format='{{index .RepoDigests 0}}' "$PURPLE_IMAGE" 2>/dev/null || echo "(not found)"
 
       - name: Create output directory
         run: mkdir -p output && chmod 777 output

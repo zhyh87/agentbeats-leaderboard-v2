@@ -29,6 +29,10 @@ except ImportError:
 
 AGENTBEATS_API_URL = "https://agentbeats.dev/api/agents"
 
+# Environment variable overrides for image pinning
+DEFAULT_GREEN_IMAGE = "ghcr.io/yonghongzhang-io/green-comtrade-bench-v2:latest"
+DEFAULT_PURPLE_IMAGE = "ghcr.io/yonghongzhang-io/purple-comtrade-baseline-v2:latest"
+
 
 def fetch_agent_info(agentbeats_id: str) -> dict:
     """Fetch agent info from agentbeats.dev API."""
@@ -115,8 +119,16 @@ endpoint = "http://green-agent:{green_port}"
 {config}"""
 
 
-def resolve_image(agent: dict, name: str) -> None:
-    """Resolve docker image for an agent, either from 'image' field or agentbeats API."""
+def resolve_image(agent: dict, name: str, env_override_key: str = None) -> None:
+    """Resolve docker image for an agent, either from env var, 'image' field, or agentbeats API."""
+    # Check for environment variable override first
+    if env_override_key:
+        env_image = os.environ.get(env_override_key)
+        if env_image:
+            agent["image"] = env_image
+            print(f"Using {name} image from {env_override_key}: {env_image}")
+            return
+
     has_image = "image" in agent
     has_id = "agentbeats_id" in agent
 
@@ -142,7 +154,7 @@ def parse_scenario(scenario_path: Path) -> dict[str, Any]:
     data = tomli.loads(toml_data)
 
     green = data.get("green_agent", {})
-    resolve_image(green, "green_agent")
+    resolve_image(green, "green_agent", env_override_key="GREEN_IMAGE")
 
     participants = data.get("participants", [])
 
@@ -156,7 +168,9 @@ def parse_scenario(scenario_path: Path) -> dict[str, Any]:
 
     for participant in participants:
         name = participant.get("name", "unknown")
-        resolve_image(participant, f"participant '{name}'")
+        # Use PURPLE_IMAGE env var for first participant (baseline purple agent)
+        env_key = "PURPLE_IMAGE" if name == "purple-comtrade-baseline-v2" else None
+        resolve_image(participant, f"participant '{name}'", env_override_key=env_key)
 
     return data
 
