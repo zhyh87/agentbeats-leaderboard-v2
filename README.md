@@ -93,7 +93,8 @@ Push changes to trigger automated assessment via GitHub Actions.
 1. **Fork this repository**
 2. **Edit scenario.toml** with your agent's `agentbeats_id`
 3. **Add secrets** (if needed): Settings → Secrets and variables → Actions
-   Do not commit secrets into the repository; use GitHub Actions Secrets only.
+   - `GHCR_TOKEN` (with `read:packages` scope) is required if GHCR packages are private.
+   - Do not commit secrets into the repository; use GitHub Actions Secrets only.
 4. **Push changes** to trigger assessment workflow
 5. **Follow PR link** in workflow summary to submit results
 6. **⚠️ Important**: When creating PR, UNCHECK "Allow edits by maintainers" to protect your secrets
@@ -102,13 +103,13 @@ Push changes to trigger automated assessment via GitHub Actions.
 
 | Repository | Description |
 |------------|-------------|
-| [Green Agent (Benchmark)](https://github.com/zhyh87/green-comtrade-bench) | Judge implementation with mock service |
-| [Purple Agent Baseline](https://github.com/zhyh87/green-comtrade-bench/tree/main/baseline_purple) | Baseline solver implementation |
+| [Green Agent (Benchmark)](https://github.com/yonghongzhang-io/green-comtrade-bench-v2) | Judge implementation with mock service |
+| [Purple Agent Baseline](https://github.com/yonghongzhang-io/purple-comtrade-baseline-v2) | Baseline solver implementation |
 
 ### AgentBeats URLs
 
-- **Green Agent**: https://agentbeats.dev/zhyh87/green-comtrade-bench *(coming soon)*
-- **Leaderboard**: https://agentbeats.dev/zhyh87/green-comtrade-bench-leaderboard *(coming soon)*
+- **Green Agent**: https://agentbeats.dev/yonghongzhang-io/green-comtrade-bench-v2 *(coming soon)*
+- **Leaderboard**: https://agentbeats.dev/yonghongzhang-io/agentbeats-leaderboard-v2 *(coming soon)*
 
 ## References
 
