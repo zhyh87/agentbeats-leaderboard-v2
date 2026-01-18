@@ -49,56 +49,7 @@ jobs:
         run: |
           python - <<'PY'
           import yaml
-          import subprocess
-          import sys
 
-          IMAGE = "ghcr.io/agentbeats/agentbeats-client:v1.0.0"
-
-          # Candidate entrypoints to try (in order of preference)
-          CANDIDATES = [
-              ["agentbeats-run"],
-              ["agentbeats-client"],
-              ["python", "-m", "agentbeats_client.client_cli"],
-              ["python", "-m", "agentbeats_client.cli"],
-              ["python", "-m", "client_cli"],
-              ["python", "client_cli.py"],
-          ]
-
-          def try_entrypoint(ep):
-              """Test if entrypoint works by running --help."""
-              try:
-                  # Build docker run command
-                  if ep[0] == "python":
-                      # For python -m ..., we need to pass the full command
-                      cmd = ["docker", "run", "--rm", IMAGE] + ep + ["--help"]
-                  else:
-                      # For binary entrypoints, use --entrypoint
-                      cmd = ["docker", "run", "--rm", "--entrypoint", ep[0], IMAGE, "--help"]
-                  
-                  result = subprocess.run(cmd, capture_output=True, timeout=30)
-                  return result.returncode == 0
-              except Exception as e:
-                  print(f"  Error testing {ep}: {e}")
-                  return False
-
-          # Find working entrypoint
-          chosen = None
-          print(f"Testing entrypoints for {IMAGE}...")
-          for ep in CANDIDATES:
-              print(f"  Trying: {ep}")
-              if try_entrypoint(ep):
-                  print(f"  SUCCESS: {ep}")
-                  chosen = ep
-                  break
-              else:
-                  print(f"  FAILED: {ep}")
-
-          if not chosen:
-              print("ERROR: No working entrypoint found!")
-              print("Tried:", CANDIDATES)
-              sys.exit(1)
-
-          # Load and patch docker-compose.yml
           path = "docker-compose.yml"
           with open(path, "r", encoding="utf-8") as f:
               data = yaml.safe_load(f)
@@ -109,16 +60,18 @@ jobs:
           if not svc:
               raise SystemExit("agentbeats-client service not found in docker-compose.yml")
 
-          # Set entrypoint and command
-          svc["entrypoint"] = chosen
+          # Remove any entrypoint override - let the image use its default ENTRYPOINT
+          svc.pop("entrypoint", None)
+
+          # Set command to use container paths
           svc["command"] = ["/app/scenario.toml", "/app/output/results.json"]
 
           with open(path, "w", encoding="utf-8") as f:
               yaml.safe_dump(data, f, sort_keys=False)
 
-          print(f"Patched docker-compose.yml:")
-          print(f"  entrypoint: {chosen}")
-          print(f"  command: ['/app/scenario.toml', '/app/output/results.json']")
+          print("Patched docker-compose.yml:")
+          print("  entrypoint: (removed, using image default)")
+          print("  command: ['/app/scenario.toml', '/app/output/results.json']")
           print()
           print("===== agentbeats-client section =====")
           print(yaml.safe_dump({"agentbeats-client": svc}, sort_keys=False))
@@ -127,7 +80,7 @@ jobs:
       - name: Debug docker-compose.yml
         run: |
           echo "===== docker-compose.yml (after patch) ====="
-          sed -n '1,200p' docker-compose.yml
+          cat docker-compose.yml
           echo "==========================================="
 
       - name: Check GHCR_TOKEN is set
