@@ -140,6 +140,23 @@ jobs:
         run: |
           echo "$SECRETS_JSON" | jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' > .env
 
+      - name: Debug agent cards
+        run: |
+          echo "===== Starting agent services for health check ====="
+          docker compose up -d green-agent purple-comtrade-baseline-v2
+          echo "Waiting for agents to be healthy..."
+          timeout 60 bash -c 'until docker compose ps | grep -E "(green-agent|purple-comtrade-baseline-v2)" | grep -q "(healthy)"; do sleep 2; done' || true
+          echo ""
+          echo "===== Green Agent Card ====="
+          docker compose exec -T green-agent curl -f http://localhost:9009/.well-known/agent-card.json | jq . || echo "FAILED"
+          echo ""
+          echo "===== Purple Agent Card ====="
+          docker compose exec -T purple-comtrade-baseline-v2 curl -f http://localhost:9009/.well-known/agent-card.json | jq . || echo "FAILED"
+          echo ""
+          echo "===== Stopping debug containers ====="
+          docker compose down
+          echo ""
+
       - name: Run assessment
         run: docker compose up --timestamps --no-color --exit-code-from agentbeats-client --abort-on-container-exit
 
