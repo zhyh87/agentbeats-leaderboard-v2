@@ -62,8 +62,9 @@ jobs:
 
           # Force entrypoint and command for agentbeats-client
           # Use module invocation since client_cli.py is part of agentbeats_tutorial package
+          # Paths must match volume mounts: ./a2a-scenario.toml -> /app/scenario.toml
           svc["entrypoint"] = ["python", "-m", "agentbeats_tutorial.client_cli"]
-          svc["command"] = ["scenario.ci.toml", "output/results.json"]
+          svc["command"] = ["/app/scenario.toml", "/app/output/results.json"]
 
           with open(path, "w", encoding="utf-8") as f:
               yaml.safe_dump(data, f, sort_keys=False)
