@@ -60,14 +60,16 @@ jobs:
           if not svc:
               raise SystemExit("agentbeats-client service not found in docker-compose.yml")
 
-          # Remove entrypoint and command overrides - let the image use its default ENTRYPOINT/CMD
+          # Remove entrypoint override - let the image use its default ENTRYPOINT
           svc.pop("entrypoint", None)
-          svc.pop("command", None)
+
+          # Set command to pass scenario file and output path
+          svc["command"] = ["scenario.ci.toml", "output/results.json"]
 
           with open(path, "w", encoding="utf-8") as f:
               yaml.safe_dump(data, f, sort_keys=False)
 
-          print("Patched docker-compose.yml: removed entrypoint/command overrides for agentbeats-client")
+          print("Patched docker-compose.yml: set command to scenario.ci.toml output/results.json")
           PY
 
       - name: Check GHCR_TOKEN is set
