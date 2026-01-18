@@ -32,6 +32,19 @@ jobs:
       - name: Generate docker-compose.yml
         run: python generate_compose.py --scenario scenario.ci.toml
 
+      - name: Debug agentbeats-client config
+        run: |
+          python - <<'PY'
+          import yaml
+          with open("docker-compose.yml") as f:
+              data = yaml.safe_load(f)
+          svc = data.get("services", {}).get("agentbeats-client", {})
+          print("=== agentbeats-client service config ===")
+          print(f"image: {svc.get('image')}")
+          print(f"entrypoint: {svc.get('entrypoint')}")
+          print(f"command: {svc.get('command')}")
+          PY
+
       - name: Patch docker-compose for agentbeats-client
         run: |
           python - <<'PY'
@@ -47,13 +60,14 @@ jobs:
           if not svc:
               raise SystemExit("agentbeats-client service not found in docker-compose.yml")
 
-          # Remove any entrypoint override - let the image use its default ENTRYPOINT/CMD
+          # Remove entrypoint and command overrides - let the image use its default ENTRYPOINT/CMD
           svc.pop("entrypoint", None)
+          svc.pop("command", None)
 
           with open(path, "w", encoding="utf-8") as f:
               yaml.safe_dump(data, f, sort_keys=False)
 
-          print("Patched docker-compose.yml: removed entrypoint override for agentbeats-client")
+          print("Patched docker-compose.yml: removed entrypoint/command overrides for agentbeats-client")
           PY
 
       - name: Check GHCR_TOKEN is set
