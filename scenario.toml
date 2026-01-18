@@ -1,5 +1,6 @@
 [green_agent]
 agentbeats_id = "019bc240-3f4d-76d3-ac6f-b8b3becaf848"
+image = "ghcr.io/zhyh87/green-comtrade-bench-v2:latest"
 env = { LOG_LEVEL = "INFO" }
 
 [[participants]]
