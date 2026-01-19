@@ -11,14 +11,14 @@ on:
 
 env:
   # Pin image SHAs to avoid stale :latest tags
-  GREEN_SHA: "3152cf44a2959060998890781743b027ab5934a0"
+  GREEN_SHA: "c711dbbba51a6638297ceb605f298dcf7e8a3664"
   PURPLE_SHA: "fdfbbff7fad42eae7e4d88b4b9120feaa2ab7514"
 
 jobs:
   run:
     runs-on: ubuntu-latest
     env:
-      GREEN_IMAGE: ghcr.io/yonghongzhang-io/green-comtrade-bench-v2:3152cf44a2959060998890781743b027ab5934a0
+      GREEN_IMAGE: ghcr.io/yonghongzhang-io/green-comtrade-bench-v2:c711dbbba51a6638297ceb605f298dcf7e8a3664
       PURPLE_IMAGE: ghcr.io/yonghongzhang-io/purple-comtrade-baseline-v2:fdfbbff7fad42eae7e4d88b4b9120feaa2ab7514
     if: github.event.repository.fork == true || github.ref == 'refs/heads/main'
     permissions:
