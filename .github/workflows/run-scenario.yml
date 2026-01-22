@@ -13,7 +13,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     env:
-      GREEN_IMAGE: ghcr.io/yonghongzhang-io/green-comtrade-bench-v2:1b830ee77ec4b9c2e6309d23bb38cad3d5cf7a62
+      GREEN_IMAGE: ghcr.io/yonghongzhang-io/green-comtrade-bench-v2:c39f663e4819003873e5bab3b06b85b8709c9639
       PURPLE_IMAGE: ghcr.io/yonghongzhang-io/purple-comtrade-baseline-v2:4b0e1883bb5e9c10348d989e77e461e4cc442c9f
     if: github.event.repository.fork == true || github.ref == 'refs/heads/main'
     permissions:
