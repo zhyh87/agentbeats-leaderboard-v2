@@ -1,0 +1,44 @@
+{
+  "participants": {
+    "purple-comtrade-baseline-v2": "019bd217-12bc-7ba0-9ef6-44370aba46a2"
+  },
+  "results": [
+    [
+      {
+        "task_id": "T1_single_page",
+        "score_total": 0.0,
+        "error": "Failed to call purple agent: HTTP Error 422: Client error '422 Unprocessable Entity' for url 'http://purple-comtrade-baseline-v2:9009/a2a/rpc'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422"
+      },
+      {
+        "task_id": "T2_multi_page",
+        "score_total": 0.0,
+        "error": "Failed to call purple agent: HTTP Error 422: Client error '422 Unprocessable Entity' for url 'http://purple-comtrade-baseline-v2:9009/a2a/rpc'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422"
+      },
+      {
+        "task_id": "T3_duplicates",
+        "score_total": 0.0,
+        "error": "Failed to call purple agent: HTTP Error 422: Client error '422 Unprocessable Entity' for url 'http://purple-comtrade-baseline-v2:9009/a2a/rpc'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422"
+      },
+      {
+        "task_id": "T4_rate_limit_429",
+        "score_total": 0.0,
+        "error": "Failed to call purple agent: HTTP Error 422: Client error '422 Unprocessable Entity' for url 'http://purple-comtrade-baseline-v2:9009/a2a/rpc'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422"
+      },
+      {
+        "task_id": "T5_server_error_500",
+        "score_total": 0.0,
+        "error": "Failed to call purple agent: HTTP Error 422: Client error '422 Unprocessable Entity' for url 'http://purple-comtrade-baseline-v2:9009/a2a/rpc'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422"
+      },
+      {
+        "task_id": "T6_page_drift",
+        "score_total": 0.0,
+        "error": "Failed to call purple agent: HTTP Error 422: Client error '422 Unprocessable Entity' for url 'http://purple-comtrade-baseline-v2:9009/a2a/rpc'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422"
+      },
+      {
+        "task_id": "T7_totals_trap",
+        "score_total": 0.0,
+        "error": "Failed to call purple agent: HTTP Error 422: Client error '422 Unprocessable Entity' for url 'http://purple-comtrade-baseline-v2:9009/a2a/rpc'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422"
+      }
+    ]
+  ]
+}
