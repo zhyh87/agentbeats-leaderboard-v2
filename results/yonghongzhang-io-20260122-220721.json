@@ -1,0 +1,44 @@
+{
+  "participants": {
+    "purple-comtrade-baseline-v2": "019bd217-12bc-7ba0-9ef6-44370aba46a2"
+  },
+  "results": [
+    [
+      {
+        "task_id": "T1_single_page",
+        "score_total": 0.0,
+        "error": "Failed to configure mock service: HTTPConnectionPool(host='mock-comtrade', port=8000): Max retries exceeded with url: /configure (Caused by NameResolutionError(\"HTTPConnection(host='mock-comtrade', port=8000): Failed to resolve 'mock-comtrade' ([Errno -3] Temporary failure in name resolution)\"))"
+      },
+      {
+        "task_id": "T2_multi_page",
+        "score_total": 0.0,
+        "error": "Failed to configure mock service: HTTPConnectionPool(host='mock-comtrade', port=8000): Max retries exceeded with url: /configure (Caused by NameResolutionError(\"HTTPConnection(host='mock-comtrade', port=8000): Failed to resolve 'mock-comtrade' ([Errno -3] Temporary failure in name resolution)\"))"
+      },
+      {
+        "task_id": "T3_duplicates",
+        "score_total": 0.0,
+        "error": "Failed to configure mock service: HTTPConnectionPool(host='mock-comtrade', port=8000): Max retries exceeded with url: /configure (Caused by NameResolutionError(\"HTTPConnection(host='mock-comtrade', port=8000): Failed to resolve 'mock-comtrade' ([Errno -3] Temporary failure in name resolution)\"))"
+      },
+      {
+        "task_id": "T4_rate_limit_429",
+        "score_total": 0.0,
+        "error": "Failed to configure mock service: HTTPConnectionPool(host='mock-comtrade', port=8000): Max retries exceeded with url: /configure (Caused by NameResolutionError(\"HTTPConnection(host='mock-comtrade', port=8000): Failed to resolve 'mock-comtrade' ([Errno -3] Temporary failure in name resolution)\"))"
+      },
+      {
+        "task_id": "T5_server_error_500",
+        "score_total": 0.0,
+        "error": "Failed to configure mock service: HTTPConnectionPool(host='mock-comtrade', port=8000): Max retries exceeded with url: /configure (Caused by NameResolutionError(\"HTTPConnection(host='mock-comtrade', port=8000): Failed to resolve 'mock-comtrade' ([Errno -3] Temporary failure in name resolution)\"))"
+      },
+      {
+        "task_id": "T6_page_drift",
+        "score_total": 0.0,
+        "error": "Failed to configure mock service: HTTPConnectionPool(host='mock-comtrade', port=8000): Max retries exceeded with url: /configure (Caused by NameResolutionError(\"HTTPConnection(host='mock-comtrade', port=8000): Failed to resolve 'mock-comtrade' ([Errno -3] Temporary failure in name resolution)\"))"
+      },
+      {
+        "task_id": "T7_totals_trap",
+        "score_total": 0.0,
+        "error": "Failed to configure mock service: HTTPConnectionPool(host='mock-comtrade', port=8000): Max retries exceeded with url: /configure (Caused by NameResolutionError(\"HTTPConnection(host='mock-comtrade', port=8000): Failed to resolve 'mock-comtrade' ([Errno -3] Temporary failure in name resolution)\"))"
+      }
+    ]
+  ]
+}
