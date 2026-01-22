@@ -1,0 +1,23 @@
+{
+  "participants": {
+    "purple-comtrade-baseline-v2": "019bd217-12bc-7ba0-9ef6-44370aba46a2"
+  },
+  "results": [
+    {
+      "status": "acknowledged",
+      "tasks": [
+        "T1_single_page",
+        "T2_multi_page",
+        "T3_duplicates",
+        "T4_rate_limit_429",
+        "T5_server_error_500",
+        "T6_page_drift",
+        "T7_totals_trap"
+      ],
+      "participants": [
+        "purple-comtrade-baseline-v2"
+      ],
+      "note": "Full evaluation implementation in progress"
+    }
+  ]
+}

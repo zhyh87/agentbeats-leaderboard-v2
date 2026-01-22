@@ -1,0 +1,20 @@
+# CI scenario - uses agentbeats_id for all agents (required by GitHub Actions)
+
+[green_agent]
+agentbeats_id = "019bd1bd-7774-73f1-b645-b192f262e843"
+
+[[participants]]
+agentbeats_id = "019bd217-12bc-7ba0-9ef6-44370aba46a2"
+name = "purple-comtrade-baseline-v2"
+env = {}
+
+[config]
+tasks = [
+  "T1_single_page",
+  "T2_multi_page",
+  "T3_duplicates",
+  "T4_rate_limit_429",
+  "T5_server_error_500",
+  "T6_page_drift",
+  "T7_totals_trap"
+]
