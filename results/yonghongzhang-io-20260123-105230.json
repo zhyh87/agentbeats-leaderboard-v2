@@ -1,0 +1,135 @@
+{
+  "participants": {
+    "purple-comtrade-baseline-v2": "019bd217-12bc-7ba0-9ef6-44370aba46a2"
+  },
+  "results": [
+    [
+      {
+        "task_id": "T1_single_page",
+        "score_total": 100.0,
+        "score_breakdown": {
+          "correctness": 50.0,
+          "robustness": 20.0,
+          "completeness": 30.0
+        },
+        "errors": [],
+        "details": {
+          "row_count_actual": 2,
+          "row_count_declared": 2,
+          "dedup_total_rows": 2,
+          "dedup_unique_rows": 2,
+          "data_sha256": "60d0c9923ff3b3504883af1371e7c252c9a58e4a0d3f1a5a6f8320ad6adef5ab",
+          "metadata_sha256": "8e2843ff550593dc7feadbbf61adc56218713934d9f060bb9c1e6544f7cdab2f"
+        }
+      },
+      {
+        "task_id": "T2_multi_page",
+        "score_total": 100.0,
+        "score_breakdown": {
+          "correctness": 50.0,
+          "robustness": 20.0,
+          "completeness": 30.0
+        },
+        "errors": [],
+        "details": {
+          "row_count_actual": 6,
+          "row_count_declared": 6,
+          "dedup_total_rows": 6,
+          "dedup_unique_rows": 6,
+          "data_sha256": "da172e6dee917a2b073936e27b27f54e2cd4b15464907a91906df9c240373144",
+          "metadata_sha256": "620742155d65ccd232103c73789d44a9a823fd4063a22a9cd059fd1f2bd22356"
+        }
+      },
+      {
+        "task_id": "T3_duplicates",
+        "score_total": 100.0,
+        "score_breakdown": {
+          "correctness": 50.0,
+          "robustness": 20.0,
+          "completeness": 30.0
+        },
+        "errors": [],
+        "details": {
+          "row_count_actual": 23,
+          "row_count_declared": 23,
+          "dedup_total_rows": 23,
+          "dedup_unique_rows": 23,
+          "data_sha256": "09bb7c12e8e5a3ac11669d57c0c6cd0c40ea5d0681fca2065f76703cefbc0c2c",
+          "metadata_sha256": "3f1728f356f7b76b1a5b0b43b6ffbdfe6a84ee15aac0516415795ddeae3ece28"
+        }
+      },
+      {
+        "task_id": "T4_rate_limit_429",
+        "score_total": 100.0,
+        "score_breakdown": {
+          "correctness": 50.0,
+          "robustness": 20.0,
+          "completeness": 30.0
+        },
+        "errors": [],
+        "details": {
+          "row_count_actual": 30,
+          "row_count_declared": 30,
+          "dedup_total_rows": 30,
+          "dedup_unique_rows": 30,
+          "data_sha256": "a50466fc43109bf0216cf63fe9fba9bc42e59c295550a53aa521a888f5e394d8",
+          "metadata_sha256": "ba4f5ad5e55272ebc6880e43f80d33761dcc12edc85fb1a40ea990bb745e53c1"
+        }
+      },
+      {
+        "task_id": "T5_server_error_500",
+        "score_total": 100.0,
+        "score_breakdown": {
+          "correctness": 50.0,
+          "robustness": 20.0,
+          "completeness": 30.0
+        },
+        "errors": [],
+        "details": {
+          "row_count_actual": 30,
+          "row_count_declared": 30,
+          "dedup_total_rows": 30,
+          "dedup_unique_rows": 30,
+          "data_sha256": "f74b2d0460b3c720c790c9c4754018913cf7f32b84a24f112d9700db189d1b8e",
+          "metadata_sha256": "24cebdd275243e5d691357b74b8470304ad45df32b1051132777b8eef9910c42"
+        }
+      },
+      {
+        "task_id": "T6_page_drift",
+        "score_total": 100.0,
+        "score_breakdown": {
+          "correctness": 50.0,
+          "robustness": 20.0,
+          "completeness": 30.0
+        },
+        "errors": [],
+        "details": {
+          "row_count_actual": 24,
+          "row_count_declared": 24,
+          "dedup_total_rows": 24,
+          "dedup_unique_rows": 24,
+          "data_sha256": "ead90cc9e777dd95829054a9a60c87615ee72cd649a671d9b4b780e35b509d8e",
+          "metadata_sha256": "2ee78559c1eca5b754ce9faa4dd9663c0ea25ad0bc8df2e8f88fdcf95d95e8d0"
+        }
+      },
+      {
+        "task_id": "T7_totals_trap",
+        "score_total": 100.0,
+        "score_breakdown": {
+          "correctness": 50.0,
+          "robustness": 20.0,
+          "completeness": 30.0
+        },
+        "errors": [],
+        "details": {
+          "row_count_actual": 2,
+          "row_count_declared": 2,
+          "dedup_total_rows": 2,
+          "dedup_unique_rows": 2,
+          "data_sha256": "6f74beeeb43d6a94d416fba7ec60c5990c082561ae02dd60c1ee2c0d18d9342c",
+          "metadata_sha256": "168b64448a8a8e31dbfca4034882dbd4bdaae0834be106515b9e39a62173e4fe"
+        }
+      }
+    ]
+  ]
+}
