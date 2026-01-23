@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GREEN_IMAGE: ghcr.io/yonghongzhang-io/green-comtrade-bench-v2:957b54300f2113c7ebabf397f7c4ff9a4c249894
-      PURPLE_IMAGE: ghcr.io/yonghongzhang-io/purple-comtrade-baseline-v2:d0a04957b6b49c5d71dd2f7908e8e4901b15ed24
+      PURPLE_IMAGE: ghcr.io/yonghongzhang-io/purple-comtrade-baseline-v2:fbc8281fbf79a934642b81700a66295dc8ab1eee
       MOCK_IMAGE: ghcr.io/yonghongzhang-io/green-comtrade-bench-v2-mock:957b54300f2113c7ebabf397f7c4ff9a4c249894
     if: github.event.repository.fork == true || github.ref == 'refs/heads/main'
     permissions:
@@ -140,8 +140,17 @@ jobs:
         run: |
           echo "===== Starting agent services for health check ====="
           docker compose up -d green-agent purple-comtrade-baseline-v2
-          echo "Waiting for agents to be healthy..."
-          timeout 60 bash -c 'until docker compose ps | grep -E "(green-agent|purple-comtrade-baseline-v2)" | grep -q "(healthy)"; do sleep 2; done' || true
+          echo "Waiting for agents to be healthy (max 90s)..."
+          timeout 90 bash -c 'until docker compose ps | grep -E "(green-agent|purple-comtrade-baseline-v2)" | grep -q "(healthy)"; do sleep 2; done' || true
+          echo ""
+          echo "===== Container Status ====="
+          docker compose ps -a
+          echo ""
+          echo "===== Purple Agent Logs ====="
+          docker compose logs purple-comtrade-baseline-v2 2>&1 | tail -100 || echo "(no logs)"
+          echo ""
+          echo "===== Green Agent Logs ====="
+          docker compose logs green-agent 2>&1 | tail -50 || echo "(no logs)"
           echo ""
           echo "===== Green Agent Card ====="
           docker compose exec -T green-agent curl -f http://localhost:9009/.well-known/agent-card.json | jq . || echo "FAILED"
