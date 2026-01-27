@@ -1,0 +1,332 @@
+{
+  "participants": {
+    "purple-comtrade-baseline-v2": "019bd217-12bc-7ba0-9ef6-44370aba46a2"
+  },
+  "results": [
+    [
+      {
+        "task_id": "T1_single_page",
+        "score_total": 75.2,
+        "score_breakdown": {
+          "correctness": 18.03,
+          "completeness": 15.0,
+          "robustness": 15.0,
+          "efficiency": 7.5,
+          "data_quality": 15.0,
+          "observability": 4.67
+        },
+        "errors": [
+          "Row count: got 2, expected 800 (accuracy: 0.2%)"
+        ],
+        "details": {
+          "row_count_actual": 2,
+          "row_count_declared": 2,
+          "row_accuracy_pct": 0.2,
+          "schema_completeness_pct": 100.0,
+          "dedup_total_rows": 2,
+          "dedup_unique_rows": 2,
+          "dedup_quality_pct": 100.0,
+          "efficiency_baseline_requests": 1,
+          "request_count": 1,
+          "request_efficiency_pct": 100.0,
+          "execution_time_seconds": 20.07,
+          "time_penalty_applied": false,
+          "data_integrity_pct": 100.0,
+          "type_consistency_pct": 100.0,
+          "value_range_pct": 100.0,
+          "log_line_count": 13,
+          "traceable_fields_found": [
+            "task_id",
+            "page",
+            "request",
+            "complete"
+          ],
+          "traceable_fields_missing": [],
+          "traceability_pct": 100.0,
+          "log_levels_used": 2,
+          "has_stop_reason": true,
+          "data_sha256": "60d0c9923ff3b3504883af1371e7c252c9a58e4a0d3f1a5a6f8320ad6adef5ab",
+          "metadata_sha256": "07973fd9d8de2f22fbe2451923f70489a238003245c4f35f6872e738063ce170",
+          "governance_rules_applied": [
+            "correctness_gate: efficiency 15.0 \u2192 7.5 (correctness 60% < 70%)",
+            "correctness_gate: observability 9.3 \u2192 4.7 (correctness 60% < 70%)"
+          ]
+        }
+      },
+      {
+        "task_id": "T2_multi_page",
+        "score_total": 75.2,
+        "score_breakdown": {
+          "correctness": 18.030703624733476,
+          "completeness": 15.0,
+          "robustness": 15.0,
+          "efficiency": 7.5,
+          "data_quality": 15.0,
+          "observability": 4.67
+        },
+        "errors": [
+          "Row count: got 6, expected 2345 (accuracy: 0.3%)"
+        ],
+        "details": {
+          "row_count_actual": 6,
+          "row_count_declared": 6,
+          "row_accuracy_pct": 0.3,
+          "schema_completeness_pct": 100.0,
+          "dedup_total_rows": 6,
+          "dedup_unique_rows": 6,
+          "dedup_quality_pct": 100.0,
+          "efficiency_baseline_requests": 5,
+          "request_count": 1,
+          "request_efficiency_pct": 100.0,
+          "execution_time_seconds": 20.06,
+          "time_penalty_applied": false,
+          "data_integrity_pct": 100.0,
+          "type_consistency_pct": 100.0,
+          "value_range_pct": 100.0,
+          "log_line_count": 13,
+          "traceable_fields_found": [
+            "task_id",
+            "page",
+            "request",
+            "complete"
+          ],
+          "traceable_fields_missing": [],
+          "traceability_pct": 100.0,
+          "log_levels_used": 2,
+          "has_stop_reason": true,
+          "data_sha256": "da172e6dee917a2b073936e27b27f54e2cd4b15464907a91906df9c240373144",
+          "metadata_sha256": "2a7135af7ea06318abb53ad8922dbe57177b616d9cd8745d931588269e24e84d",
+          "governance_rules_applied": [
+            "correctness_gate: efficiency 15.0 \u2192 7.5 (correctness 60% < 70%)",
+            "correctness_gate: observability 9.3 \u2192 4.7 (correctness 60% < 70%)"
+          ]
+        }
+      },
+      {
+        "task_id": "T3_duplicates",
+        "score_total": 98.4,
+        "score_breakdown": {
+          "correctness": 29.04,
+          "completeness": 15.0,
+          "robustness": 15.0,
+          "efficiency": 15.0,
+          "data_quality": 15.0,
+          "observability": 9.34
+        },
+        "errors": [
+          "Row count: got 23, expected 25 (accuracy: 92.0%)"
+        ],
+        "details": {
+          "row_count_actual": 23,
+          "row_count_declared": 23,
+          "row_accuracy_pct": 92.0,
+          "schema_completeness_pct": 100.0,
+          "dedup_total_rows": 23,
+          "dedup_unique_rows": 23,
+          "dedup_quality_pct": 100.0,
+          "efficiency_baseline_requests": 3,
+          "request_count": 3,
+          "request_efficiency_pct": 100.0,
+          "execution_time_seconds": 20.06,
+          "time_penalty_applied": false,
+          "data_integrity_pct": 100.0,
+          "type_consistency_pct": 100.0,
+          "value_range_pct": 100.0,
+          "log_line_count": 15,
+          "traceable_fields_found": [
+            "task_id",
+            "page",
+            "request",
+            "complete"
+          ],
+          "traceable_fields_missing": [],
+          "traceability_pct": 100.0,
+          "log_levels_used": 2,
+          "has_stop_reason": true,
+          "data_sha256": "09bb7c12e8e5a3ac11669d57c0c6cd0c40ea5d0681fca2065f76703cefbc0c2c",
+          "metadata_sha256": "77d36b3dc1af7240f740dc59fe3bf353b0f9e8c2b3eb6bfdda66ce0a1163dd46"
+        }
+      },
+      {
+        "task_id": "T4_rate_limit_429",
+        "score_total": 99.3,
+        "score_breakdown": {
+          "correctness": 30.0,
+          "completeness": 15.0,
+          "robustness": 15.0,
+          "efficiency": 15.0,
+          "data_quality": 15.0,
+          "observability": 9.34
+        },
+        "errors": [],
+        "details": {
+          "row_count_actual": 30,
+          "row_count_declared": 30,
+          "row_accuracy_pct": 100.0,
+          "schema_completeness_pct": 100.0,
+          "dedup_total_rows": 30,
+          "dedup_unique_rows": 30,
+          "dedup_quality_pct": 100.0,
+          "efficiency_baseline_requests": 4,
+          "request_count": 4,
+          "request_efficiency_pct": 100.0,
+          "execution_time_seconds": 21.07,
+          "time_penalty_applied": false,
+          "data_integrity_pct": 100.0,
+          "type_consistency_pct": 100.0,
+          "value_range_pct": 100.0,
+          "log_line_count": 15,
+          "traceable_fields_found": [
+            "task_id",
+            "page",
+            "request",
+            "complete"
+          ],
+          "traceable_fields_missing": [],
+          "traceability_pct": 100.0,
+          "log_levels_used": 2,
+          "has_stop_reason": true,
+          "data_sha256": "a50466fc43109bf0216cf63fe9fba9bc42e59c295550a53aa521a888f5e394d8",
+          "metadata_sha256": "fe41faedf2b055764f44de52efb841a374197c4c723132f388ff2169d6048fce"
+        }
+      },
+      {
+        "task_id": "T5_server_error_500",
+        "score_total": 97.0,
+        "score_breakdown": {
+          "correctness": 30.0,
+          "completeness": 15.0,
+          "robustness": 12.0,
+          "efficiency": 15.0,
+          "data_quality": 15.0,
+          "observability": 10.0
+        },
+        "errors": [],
+        "details": {
+          "row_count_actual": 30,
+          "row_count_declared": 30,
+          "row_accuracy_pct": 100.0,
+          "schema_completeness_pct": 100.0,
+          "dedup_total_rows": 30,
+          "dedup_unique_rows": 30,
+          "dedup_quality_pct": 100.0,
+          "efficiency_baseline_requests": 4,
+          "request_count": 4,
+          "request_efficiency_pct": 100.0,
+          "execution_time_seconds": 21.07,
+          "time_penalty_applied": false,
+          "data_integrity_pct": 100.0,
+          "type_consistency_pct": 100.0,
+          "value_range_pct": 100.0,
+          "log_line_count": 15,
+          "traceable_fields_found": [
+            "task_id",
+            "page",
+            "request",
+            "complete"
+          ],
+          "traceable_fields_missing": [],
+          "traceability_pct": 100.0,
+          "log_levels_used": 3,
+          "has_stop_reason": true,
+          "data_sha256": "f74b2d0460b3c720c790c9c4754018913cf7f32b84a24f112d9700db189d1b8e",
+          "metadata_sha256": "b4d7c9e72776de9d0249f5d98d75d470dec19ab20457de55be076a783f3a563c"
+        }
+      },
+      {
+        "task_id": "T6_page_drift",
+        "score_total": 95.3,
+        "score_breakdown": {
+          "correctness": 26.0,
+          "completeness": 15.0,
+          "robustness": 15.0,
+          "efficiency": 15.0,
+          "data_quality": 15.0,
+          "observability": 9.34
+        },
+        "errors": [
+          "Row count: got 24, expected 36 (accuracy: 66.7%)"
+        ],
+        "details": {
+          "row_count_actual": 24,
+          "row_count_declared": 24,
+          "row_accuracy_pct": 66.7,
+          "schema_completeness_pct": 100.0,
+          "dedup_total_rows": 24,
+          "dedup_unique_rows": 24,
+          "dedup_quality_pct": 100.0,
+          "efficiency_baseline_requests": 3,
+          "request_count": 3,
+          "request_efficiency_pct": 100.0,
+          "execution_time_seconds": 20.06,
+          "time_penalty_applied": false,
+          "data_integrity_pct": 100.0,
+          "type_consistency_pct": 100.0,
+          "value_range_pct": 100.0,
+          "log_line_count": 15,
+          "traceable_fields_found": [
+            "task_id",
+            "page",
+            "request",
+            "complete"
+          ],
+          "traceable_fields_missing": [],
+          "traceability_pct": 100.0,
+          "log_levels_used": 2,
+          "has_stop_reason": true,
+          "data_sha256": "ead90cc9e777dd95829054a9a60c87615ee72cd649a671d9b4b780e35b509d8e",
+          "metadata_sha256": "c2e54f8cd1f892d557c69c865904ff8a35b7c96e18876c46428469aa0bb1604a"
+        }
+      },
+      {
+        "task_id": "T7_totals_trap",
+        "score_total": 69.2,
+        "score_breakdown": {
+          "correctness": 18.032,
+          "completeness": 15.0,
+          "robustness": 15.0,
+          "efficiency": 1.5,
+          "data_quality": 15.0,
+          "observability": 4.67
+        },
+        "errors": [
+          "Row count: got 2, expected 750 (accuracy: 0.3%)"
+        ],
+        "details": {
+          "row_count_actual": 2,
+          "row_count_declared": 2,
+          "row_accuracy_pct": 0.3,
+          "schema_completeness_pct": 100.0,
+          "dedup_total_rows": 2,
+          "dedup_unique_rows": 2,
+          "dedup_quality_pct": 100.0,
+          "efficiency_baseline_requests": 8,
+          "request_count": 747,
+          "request_efficiency_pct": 0.0,
+          "execution_time_seconds": 21.27,
+          "time_penalty_applied": false,
+          "data_integrity_pct": 100.0,
+          "type_consistency_pct": 100.0,
+          "value_range_pct": 100.0,
+          "log_line_count": 759,
+          "traceable_fields_found": [
+            "task_id",
+            "page",
+            "request",
+            "complete"
+          ],
+          "traceable_fields_missing": [],
+          "traceability_pct": 100.0,
+          "log_levels_used": 2,
+          "has_stop_reason": true,
+          "data_sha256": "6f74beeeb43d6a94d416fba7ec60c5990c082561ae02dd60c1ee2c0d18d9342c",
+          "metadata_sha256": "96a3dfb210c400e684167aa67d68d24def058163eeeba0bc867cd0c67191e6c9",
+          "governance_rules_applied": [
+            "correctness_gate: efficiency 3.0 \u2192 1.5 (correctness 60% < 70%)",
+            "correctness_gate: observability 9.3 \u2192 4.7 (correctness 60% < 70%)"
+          ]
+        }
+      }
+    ]
+  ]
+}
